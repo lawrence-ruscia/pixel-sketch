@@ -60,9 +60,18 @@ body {
   padding: 10px 20px;
 }
 
-#color-picker {
+.grid-size {
+  font-size: 1.5em;
+  margin-bottom: -20px;
+}
+
+.color-picker {
   width: 70px;
   height: 70px;
+}
+
+.slider-size {
+  width: 100%;
 }
 
 /* Grid container */
