@@ -25,6 +25,12 @@ body {
   text-align: center;
   padding: 2rem;
 
-  font-size: 5rem;
+  font-size: 5em;
   font-weight: 700;
+}
+
+/* Main body */
+.main-body {
+  display: flex;
+  padding: 2rem;
 }
