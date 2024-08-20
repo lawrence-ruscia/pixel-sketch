@@ -33,4 +33,26 @@ body {
 .main-body {
   display: flex;
   padding: 2rem;
+  gap: 100px;
+  justify-content: center;
+}
+
+/* Controller */
+.controller {
+  border: 2px solid red;
+
+  width: 300px;
+}
+
+/* Grid container */
+.grid-container {
+  border: 2px solid red;
+
+  width: 500px;
+  height: 500px;
+}
+
+/* NOTE: This is only temporary */
+.controller > * {
+  border: 2px solid lime;
 }
