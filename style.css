@@ -46,15 +46,22 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  align-items: center;
 }
 
-.controller > * {
-  border: 2px solid lime;
+.controller > button {
+  border: 2px solid black;
   width: 100%;
   padding: 10px 20px;
 
   font-size: 1em;
 }
+
+#color-picker {
+  width: 70px;
+  height: 70px;
+}
+
 /* Grid container */
 .grid-container {
   border: 2px solid red;
