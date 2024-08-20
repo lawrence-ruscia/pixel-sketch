@@ -15,3 +15,14 @@
 body {
   font-family: "Roboto", sans-serif;
 }
+
+/* Header */
+.header {
+  border: 2px solid red;
+
+  text-align: center;
+  padding: 2rem;
+
+  font-size: 5rem;
+  font-weight: 700;
+}
