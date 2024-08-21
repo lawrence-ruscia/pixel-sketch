@@ -49,6 +49,9 @@ function changeSelectedColor() {
 
 function changeGridSize() {
   const sliderSize = document.querySelector(".slider-size");
+  const DEFAULT_SIZE = 16;
+  createGrid(DEFAULT_SIZE);
+
   sliderSize.addEventListener("input", () => {
     let size = sliderSize.value;
     createGrid(size);
