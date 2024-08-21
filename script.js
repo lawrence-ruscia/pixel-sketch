@@ -11,7 +11,6 @@ function highlightSelectedButton() {
   });
 }
 
-const DEFAULT_SIZE = 16;
 function createGrid(size) {
   const gridContainer = document.querySelector(".grid-container");
 
@@ -48,6 +47,13 @@ function changeSelectedColor() {
   });
 }
 
+function changeGridSize() {
+  const sliderSize = document.querySelector(".slider-size");
+  sliderSize.addEventListener("input", () => {
+    createGrid(sliderSize.value);
+  });
+}
+
 highlightSelectedButton();
-createGrid(DEFAULT_SIZE);
+changeGridSize();
 changeSelectedColor();
