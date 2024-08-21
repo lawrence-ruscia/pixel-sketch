@@ -1,3 +1,6 @@
+const DEFAULT_SIZE = 16;
+const DEFAULT_BACKGROUND_COLOR = "#393e46";
+
 function highlightSelectedButton() {
   const controller = document.querySelector(".controller");
   const buttons = document.querySelectorAll("button");
@@ -38,9 +41,8 @@ function addGridItemColor(selectedColor) {
 
 function changeSelectedColor() {
   const colorPicker = document.querySelector(".color-picker");
-  const DEFAULT_COLOR = "#393e46";
 
-  addGridItemColor(DEFAULT_COLOR);
+  addGridItemColor(DEFAULT_BACKGROUND_COLOR);
 
   colorPicker.addEventListener("input", () => {
     addGridItemColor(colorPicker.value);
@@ -49,7 +51,7 @@ function changeSelectedColor() {
 
 function changeGridSize() {
   const sliderSize = document.querySelector(".slider-size");
-  const DEFAULT_SIZE = 16;
+
   createGrid(DEFAULT_SIZE);
 
   sliderSize.addEventListener("input", () => {
