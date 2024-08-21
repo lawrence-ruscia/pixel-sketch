@@ -50,8 +50,15 @@ function changeSelectedColor() {
 function changeGridSize() {
   const sliderSize = document.querySelector(".slider-size");
   sliderSize.addEventListener("input", () => {
-    createGrid(sliderSize.value);
+    let size = sliderSize.value;
+    createGrid(size);
+    changeSizeText(size);
   });
+}
+
+function changeSizeText(size) {
+  const gridSize = document.querySelector(".grid-size");
+  gridSize.querySelector("p").textContent = `${size} x ${size}`;
 }
 
 highlightSelectedButton();
