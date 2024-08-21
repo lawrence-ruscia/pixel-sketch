@@ -30,13 +30,24 @@ function createGrid(size) {
   }
 }
 
-function addGridItemColor() {
+function addGridItemColor(selectedColor) {
   const gridContainer = document.querySelector(".grid-container");
   gridContainer.addEventListener("mouseover", (e) => {
-    e.target.style.backgroundColor = "#393e46";
+    e.target.style.backgroundColor = selectedColor;
+  });
+}
+
+function changeSelectedColor() {
+  const colorPicker = document.querySelector(".color-picker");
+  const DEFAULT_COLOR = "#393e46";
+
+  addGridItemColor(DEFAULT_COLOR);
+
+  colorPicker.addEventListener("input", () => {
+    addGridItemColor(colorPicker.value);
   });
 }
 
 highlightSelectedButton();
 createGrid(DEFAULT_SIZE);
-addGridItemColor();
+changeSelectedColor();
