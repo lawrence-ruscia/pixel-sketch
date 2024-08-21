@@ -9,7 +9,7 @@ controller.addEventListener("click", (e) => {
   }
 });
 
-const DEFAULT_SIZE = 4;
+const DEFAULT_SIZE = 16;
 function createGrid(size) {
   const gridContainer = document.querySelector(".grid-container");
 
@@ -29,3 +29,12 @@ function createGrid(size) {
 }
 
 createGrid(DEFAULT_SIZE);
+
+function addGridItemColor() {
+  const gridContainer = document.querySelector(".grid-container");
+  gridContainer.addEventListener("mouseover", (e) => {
+    e.target.style.backgroundColor = "#393e46";
+  });
+}
+
+addGridItemColor();
