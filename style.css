@@ -97,15 +97,16 @@ button {
 
 /* Grid container */
 .grid-container {
+  background-color: white;
+
   width: 500px;
   height: 500px;
 
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: column wrap;
 }
 
 .grid-item {
-  border: 2px solid lime;
-
-  flex: 1 1 50%;
+  border: 1px solid #393e46;
+  background-color: white;
 }
