@@ -1,13 +1,15 @@
-const controller = document.querySelector(".controller");
-const buttons = document.querySelectorAll("button");
+function highlightSelectedButton() {
+  const controller = document.querySelector(".controller");
+  const buttons = document.querySelectorAll("button");
 
-controller.addEventListener("click", (e) => {
-  if (e.target.tagName === "BUTTON") {
-    buttons.forEach((button) => button.classList.remove("selected"));
+  controller.addEventListener("click", (e) => {
+    if (e.target.tagName === "BUTTON") {
+      buttons.forEach((button) => button.classList.remove("selected"));
 
-    e.target.classList.toggle("selected");
-  }
-});
+      e.target.classList.toggle("selected");
+    }
+  });
+}
 
 const DEFAULT_SIZE = 16;
 function createGrid(size) {
@@ -28,8 +30,6 @@ function createGrid(size) {
   }
 }
 
-createGrid(DEFAULT_SIZE);
-
 function addGridItemColor() {
   const gridContainer = document.querySelector(".grid-container");
   gridContainer.addEventListener("mouseover", (e) => {
@@ -37,4 +37,6 @@ function addGridItemColor() {
   });
 }
 
+highlightSelectedButton();
+createGrid(DEFAULT_SIZE);
 addGridItemColor();
