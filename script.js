@@ -38,15 +38,15 @@ function changeGridSize() {
   createGrid(DEFAULT_SIZE);
 
   sliderSize.addEventListener("input", () => {
-    let size = sliderSize.value;
-    createGrid(size);
-    changeSizeText(size);
+    createGrid(sliderSize.value);
   });
 }
 
-function changeSizeText(size) {
-  const gridSize = document.querySelector(".grid-size");
-  gridSize.querySelector("p").textContent = `${size} x ${size}`;
+function addGridItemColor(selectedColor) {
+  const gridContainer = document.querySelector(".grid-container");
+  gridContainer.addEventListener("mouseover", (e) => {
+    e.target.style.backgroundColor = selectedColor;
+  });
 }
 
 function changeRainbowColor() {
@@ -67,6 +67,12 @@ function getRandomRGB() {
   return rgb;
 }
 
+function addGridItemColor(selectedColor) {
+  const gridContainer = document.querySelector(".grid-container");
+  gridContainer.addEventListener("mouseover", (e) => {
+    e.target.style.backgroundColor = selectedColor;
+  });
+}
 highlightSelectedButton();
 changeGridSize();
 changeSelectedColor();
