@@ -49,49 +49,11 @@ function changeSizeText(size) {
   gridSize.querySelector("p").textContent = `${size} x ${size}`;
 }
 
-function changeColorMode() {
-  const colorPicker = document.querySelector(".color-picker");
-  // Remove any existing event listeners to prevent multiple handlers
-  gridContainer.removeEventListener("mouseover", applyRainbowColor);
-  gridContainer.removeEventListener("mouseover", applySelectedColor);
-
-  // Add the new event listener
-  colorPicker.addEventListener("input", applySelectedColor);
-}
-
-function addSelectedColor(e) {
-  const selectedColor = e.target.value;
+function changeRainbowColor() {
   const gridContainer = document.querySelector(".grid-container");
-
-  function applyColor(e) {
-    e.target.style.backgroundColor = selectedColor;
-  }
-
-  gridContainer.addEventListener("mouseover", applyColor);
-}
-
-function determineMode() {
-  const controller = document.querySelector(".controller");
-
-  controller.addEventListener("click", (e) => {
-    if (e.target.classList.contains("color-mode")) {
-      changeColorMode();
-    } else if (e.target.classList.contains("rainbow-mode")) {
-      changeRainbowMode();
-    }
+  gridContainer.addEventListener("mouseover", () => {
+    addGridItemColor(getRandomRGB());
   });
-}
-
-function changeRainbowMode() {
-  const gridContainer = document.querySelector(".grid-container");
-
-  // Remove any existing event listeners to prevent multiple handlers
-  gridContainer.removeEventListener("mouseover", applySelectedColor);
-  gridContainer.removeEventListener("mouseover", applyRainbowColor);
-
-  function applyRainbowColor(e) {
-    e.target.style.backgroundColor = getRandomRGB();
-  }
 }
 
 function getRandomRGB() {
@@ -107,4 +69,5 @@ function getRandomRGB() {
 
 highlightSelectedButton();
 changeGridSize();
+changeSelectedColor();
 determineMode();
