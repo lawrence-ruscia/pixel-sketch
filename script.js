@@ -32,23 +32,6 @@ function createGrid(size) {
   }
 }
 
-function addGridItemColor(selectedColor) {
-  const gridContainer = document.querySelector(".grid-container");
-  gridContainer.addEventListener("mouseover", (e) => {
-    e.target.style.backgroundColor = selectedColor;
-  });
-}
-
-function changeSelectedColor() {
-  const colorPicker = document.querySelector(".color-picker");
-
-  addGridItemColor(DEFAULT_BACKGROUND_COLOR);
-
-  colorPicker.addEventListener("input", () => {
-    addGridItemColor(colorPicker.value);
-  });
-}
-
 function changeGridSize() {
   const sliderSize = document.querySelector(".slider-size");
 
@@ -66,11 +49,49 @@ function changeSizeText(size) {
   gridSize.querySelector("p").textContent = `${size} x ${size}`;
 }
 
-function changeRainbowColor() {
+function changeColorMode() {
+  const colorPicker = document.querySelector(".color-picker");
+  // Remove any existing event listeners to prevent multiple handlers
+  gridContainer.removeEventListener("mouseover", applyRainbowColor);
+  gridContainer.removeEventListener("mouseover", applySelectedColor);
+
+  // Add the new event listener
+  colorPicker.addEventListener("input", applySelectedColor);
+}
+
+function addSelectedColor(e) {
+  const selectedColor = e.target.value;
   const gridContainer = document.querySelector(".grid-container");
-  gridContainer.addEventListener("mouseover", () => {
-    addGridItemColor(getRandomRGB());
+
+  function applyColor(e) {
+    e.target.style.backgroundColor = selectedColor;
+  }
+
+  gridContainer.addEventListener("mouseover", applyColor);
+}
+
+function determineMode() {
+  const controller = document.querySelector(".controller");
+
+  controller.addEventListener("click", (e) => {
+    if (e.target.classList.contains("color-mode")) {
+      changeColorMode();
+    } else if (e.target.classList.contains("rainbow-mode")) {
+      changeRainbowMode();
+    }
   });
+}
+
+function changeRainbowMode() {
+  const gridContainer = document.querySelector(".grid-container");
+
+  // Remove any existing event listeners to prevent multiple handlers
+  gridContainer.removeEventListener("mouseover", applySelectedColor);
+  gridContainer.removeEventListener("mouseover", applyRainbowColor);
+
+  function applyRainbowColor(e) {
+    e.target.style.backgroundColor = getRandomRGB();
+  }
 }
 
 function getRandomRGB() {
@@ -86,4 +107,4 @@ function getRandomRGB() {
 
 highlightSelectedButton();
 changeGridSize();
-changeRainbowColor();
+determineMode();
