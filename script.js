@@ -42,38 +42,5 @@ function changeGridSize() {
   });
 }
 
-function addGridItemColor(selectedColor) {
-  const gridContainer = document.querySelector(".grid-container");
-  gridContainer.addEventListener("mouseover", (e) => {
-    e.target.style.backgroundColor = selectedColor;
-  });
-}
-
-function changeRainbowColor() {
-  const gridContainer = document.querySelector(".grid-container");
-  gridContainer.addEventListener("mouseover", () => {
-    addGridItemColor(getRandomRGB());
-  });
-}
-
-function getRandomRGB() {
-  const randomBetween = (min, max) =>
-    min + Math.floor(Math.random() * (max - min + 1));
-  const r = randomBetween(0, 255);
-  const g = randomBetween(0, 255);
-  const b = randomBetween(0, 255);
-  const rgb = `rgb(${r},${g},${b})`; // Collect all to a css color string
-
-  return rgb;
-}
-
-function addGridItemColor(selectedColor) {
-  const gridContainer = document.querySelector(".grid-container");
-  gridContainer.addEventListener("mouseover", (e) => {
-    e.target.style.backgroundColor = selectedColor;
-  });
-}
 highlightSelectedButton();
 changeGridSize();
-changeSelectedColor();
-determineMode();
