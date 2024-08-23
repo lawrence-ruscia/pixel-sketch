@@ -70,7 +70,20 @@ function applyColor(target) {
   target.style.backgroundColor = colorPicker.value;
 }
 
-function activateRainbowMode() {}
+function activateRainbowMode() {
+  const gridContainer = document.querySelector(".grid-container");
+
+  let changeBackgroundColor = (e) => {
+    let targetGridItem = e.target;
+    applyRGBColor(targetGridItem);
+  };
+
+  gridContainer.addEventListener("mouseover", changeBackgroundColor);
+}
+
+function applyRGBColor(target) {
+  target.style.backgroundColor = getRandomRGB();
+}
 
 function getRandomRGB() {
   let randomRGBValue = () => Math.floor(Math.random() * 255) + 1;
@@ -88,6 +101,9 @@ function determineMode() {
   controller.addEventListener("click", (e) => {
     if (e.target.classList.contains("color-mode")) {
       activateColorMode();
+    }
+    if (e.target.classList.contains("rainbow-mode")) {
+      activateRainbowMode();
     }
   });
 }
