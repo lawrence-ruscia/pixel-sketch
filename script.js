@@ -44,31 +44,43 @@ function changeGridSize() {
   });
 }
 
-<<<<<<< HEAD
-=======
 function changeSizeText(size) {
   const gridSize = document.querySelector(".grid-size");
   gridSize.querySelector("p").textContent = `${size} x ${size}`;
 }
 
-function changeRainbowColor() {
+/*
+  Create mouseover event on grid-container
+  change target div's background color based on colorPicker value
+*/
+function activateColorMode() {
   const gridContainer = document.querySelector(".grid-container");
-  gridContainer.addEventListener("mouseover", () => {
-    addGridItemColor(getRandomRGB());
+
+  let selectedColor = DEFAULT_BACKGROUND_COLOR;
+
+  let changeBackgroundColor = (e) => {
+    applyColor(e.target);
+  };
+
+  gridContainer.addEventListener("mouseover", changeBackgroundColor);
+}
+
+function applyColor(target) {
+  const colorPicker = document.querySelector(".color-picker");
+
+  target.style.backgroundColor = colorPicker.value;
+}
+
+function determineMode() {
+  const controller = document.querySelector(".controller");
+
+  controller.addEventListener("click", (e) => {
+    if (e.target.classList.contains("color-mode")) {
+      activateColorMode();
+    }
   });
 }
 
-function getRandomRGB() {
-  const randomBetween = (min, max) =>
-    min + Math.floor(Math.random() * (max - min + 1));
-  const r = randomBetween(0, 255);
-  const g = randomBetween(0, 255);
-  const b = randomBetween(0, 255);
-  const rgb = `rgb(${r},${g},${b})`; // Collect all to a css color string
-
-  return rgb;
-}
-
->>>>>>> parent of 527501e (Revert "Add feature that changes text based on slider value")
 highlightSelectedButton();
 changeGridSize();
+determineMode();
