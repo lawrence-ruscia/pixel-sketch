@@ -1,5 +1,5 @@
 const DEFAULT_SIZE = 16;
-const DEFAULT_BACKGROUND_COLOR = "#393e46";
+const DEFAULT_COLOR_PICKER_VALUE = "#393e46";
 
 function highlightSelectedButton() {
   const controller = document.querySelector(".controller");
