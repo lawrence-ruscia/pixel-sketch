@@ -94,7 +94,7 @@ function getRandomRGB() {
   return `rgb(${r}, ${g}, ${b})`;
 }
 
-function activateClearMode() {
+function activateClear() {
   const gridItems = document.querySelectorAll(".grid-item");
 
   gridItems.forEach(
@@ -122,7 +122,7 @@ function determineMode() {
       activateMode("eraser");
     }
     if (targetContainsClass(target, "clear")) {
-      activateClearMode();
+      activateClear();
     }
   });
 }
