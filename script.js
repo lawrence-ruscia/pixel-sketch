@@ -56,10 +56,9 @@ function changeSizeText(size) {
 function activateColorMode() {
   const gridContainer = document.querySelector(".grid-container");
 
-  let selectedColor = DEFAULT_BACKGROUND_COLOR;
-
   let changeBackgroundColor = (e) => {
-    applyColor(e.target);
+    let targetGridItem = e.target;
+    applyColor(targetGridItem);
   };
 
   gridContainer.addEventListener("mouseover", changeBackgroundColor);
