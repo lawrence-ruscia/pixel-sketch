@@ -7,7 +7,7 @@ function highlightSelectedButton() {
   const buttons = document.querySelectorAll("button");
 
   controller.addEventListener("click", (e) => {
-    if (e.target.tagName === "BUTTON") {
+    if (e.target.classList.contains("button-mode")) {
       buttons.forEach((button) => button.classList.remove("selected"));
 
       e.target.classList.toggle("selected");
