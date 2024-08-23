@@ -94,17 +94,22 @@ function getRandomRGB() {
   return `rgb(${r}, ${g}, ${b})`;
 }
 
+function targetContainsClass(target, className) {
+  return target.classList.contains(className);
+}
 function determineMode() {
   const controller = document.querySelector(".controller");
 
   controller.addEventListener("click", (e) => {
-    if (e.target.classList.contains("color-mode")) {
+    let target = e.target;
+
+    if (targetContainsClass(target, "color-mode")) {
       activateMode("color");
     }
-    if (e.target.classList.contains("rainbow-mode")) {
+    if (targetContainsClass(target, "rainbow-mode")) {
       activateMode("rainbow");
     }
-    if (e.target.classList.contains("eraser-mode")) {
+    if (targetContainsClass(target, "eraser-mode")) {
       activateMode("eraser");
     }
   });
