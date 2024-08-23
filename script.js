@@ -49,16 +49,18 @@ function changeSizeText(size) {
   gridSize.querySelector("p").textContent = `${size} x ${size}`;
 }
 
-/*
-  Create mouseover event on grid-container
-  change target div's background color based on colorPicker value
-*/
-function activateColorMode() {
+function activateMode(type) {
   const gridContainer = document.querySelector(".grid-container");
 
   let changeBackgroundColor = (e) => {
     let targetGridItem = e.target;
-    applyColor(targetGridItem);
+
+    if (type === "color") {
+      applyColor(targetGridItem);
+    }
+    if (type === "rainbow") {
+      applyRGBColor(targetGridItem);
+    }
   };
 
   gridContainer.addEventListener("mouseover", changeBackgroundColor);
@@ -68,17 +70,6 @@ function applyColor(target) {
   const colorPicker = document.querySelector(".color-picker");
 
   target.style.backgroundColor = colorPicker.value;
-}
-
-function activateRainbowMode() {
-  const gridContainer = document.querySelector(".grid-container");
-
-  let changeBackgroundColor = (e) => {
-    let targetGridItem = e.target;
-    applyRGBColor(targetGridItem);
-  };
-
-  gridContainer.addEventListener("mouseover", changeBackgroundColor);
 }
 
 function applyRGBColor(target) {
@@ -100,10 +91,10 @@ function determineMode() {
 
   controller.addEventListener("click", (e) => {
     if (e.target.classList.contains("color-mode")) {
-      activateColorMode();
+      activateMode("color");
     }
     if (e.target.classList.contains("rainbow-mode")) {
-      activateRainbowMode();
+      activateMode("rainbow");
     }
   });
 }
