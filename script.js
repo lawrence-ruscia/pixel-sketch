@@ -1,5 +1,6 @@
 const DEFAULT_SIZE = 16;
 const DEFAULT_COLOR_PICKER_VALUE = "#393e46";
+const DEFAULT_GRID_BACKGROUND = "white";
 
 function highlightSelectedButton() {
   const controller = document.querySelector(".controller");
@@ -61,6 +62,9 @@ function activateMode(type) {
     if (type === "rainbow") {
       applyRGBColor(targetGridItem);
     }
+    if (type === "eraser") {
+      applyEraserColor(targetGridItem);
+    }
   };
 
   gridContainer.addEventListener("mouseover", changeBackgroundColor);
@@ -74,6 +78,10 @@ function applyColor(target) {
 
 function applyRGBColor(target) {
   target.style.backgroundColor = getRandomRGB();
+}
+
+function applyEraserColor(target) {
+  target.style.backgroundColor = DEFAULT_GRID_BACKGROUND;
 }
 
 function getRandomRGB() {
@@ -95,6 +103,9 @@ function determineMode() {
     }
     if (e.target.classList.contains("rainbow-mode")) {
       activateMode("rainbow");
+    }
+    if (e.target.classList.contains("eraser")) {
+      activateMode("eraser");
     }
   });
 }
