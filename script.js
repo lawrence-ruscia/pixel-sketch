@@ -70,6 +70,18 @@ function applyColor(target) {
   target.style.backgroundColor = colorPicker.value;
 }
 
+function activateRainbowMode() {}
+
+function getRandomRGB() {
+  let randomRGBValue = () => Math.floor(Math.random() * 255) + 1;
+
+  let r = randomRGBValue();
+  let g = randomRGBValue();
+  let b = randomRGBValue();
+
+  return `rgb(${r}, ${g}, ${b})`;
+}
+
 function determineMode() {
   const controller = document.querySelector(".controller");
 
