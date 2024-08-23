@@ -104,7 +104,7 @@ function determineMode() {
     if (e.target.classList.contains("rainbow-mode")) {
       activateMode("rainbow");
     }
-    if (e.target.classList.contains("eraser")) {
+    if (e.target.classList.contains("eraser-mode")) {
       activateMode("eraser");
     }
   });
