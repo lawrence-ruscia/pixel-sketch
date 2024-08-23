@@ -94,9 +94,18 @@ function getRandomRGB() {
   return `rgb(${r}, ${g}, ${b})`;
 }
 
+function activateClearMode() {
+  const gridItems = document.querySelectorAll(".grid-item");
+
+  gridItems.forEach(
+    (item) => (item.style.backgroundColor = DEFAULT_GRID_BACKGROUND)
+  );
+}
+
 function targetContainsClass(target, className) {
   return target.classList.contains(className);
 }
+
 function determineMode() {
   const controller = document.querySelector(".controller");
 
@@ -111,6 +120,9 @@ function determineMode() {
     }
     if (targetContainsClass(target, "eraser-mode")) {
       activateMode("eraser");
+    }
+    if (targetContainsClass(target, "clear")) {
+      activateClearMode();
     }
   });
 }
