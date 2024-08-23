@@ -77,7 +77,7 @@ function applyRGBColor(target) {
 }
 
 function getRandomRGB() {
-  let randomRGBValue = () => Math.floor(Math.random() * 255) + 1;
+  let randomRGBValue = () => Math.floor(Math.random() * 256);
 
   let r = randomRGBValue();
   let g = randomRGBValue();
